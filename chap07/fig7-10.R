@@ -1,0 +1,10 @@
+library(ggplot2)
+
+d <- read.csv(file='input/data-outlier.csv')
+
+p <- ggplot(data=d, aes(x=X, y=Y)) +
+  theme_bw(base_size=18) +
+  geom_point(shape=1, size=3) +
+  labs(x='X', y='Y') +
+  coord_cartesian(xlim=c(-0.2, 11.2), ylim=c(-25, 75))
+ggsave(p, file='output/fig7-10.png', dpi=300, w=4, h=3)
