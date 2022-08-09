@@ -1,7 +1,7 @@
 library(mvtnorm)
 set.seed(123)
 
-S <- 5    # number of samples
+S <- 5    # number of draws
 N <- 101  # length of f
 X <- seq(0, 1, len=N)
 a   <- 2
@@ -14,4 +14,4 @@ for (i in 1:N) {
   }
 }
 
-f_samples <- rmvnorm(S, mean=rep(0, N), sigma=K)
+f_draws <- rmvnorm(S, mean=rep(0, N), sigma=K)
