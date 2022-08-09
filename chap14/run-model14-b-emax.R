@@ -30,7 +30,7 @@ d_res <- foreach(paraID=seq_len(nrow(param)), .combine=rbind, .export=ls(envir=.
                         refresh=0, show_messages=FALSE))
   
   yp_ms <- fit$draws('yp', format='matrix')
-  ge_by_sample <- sapply(1:N, function(n) {
+  ge_by_data_point <- sapply(1:N, function(n) {
     dens <- KernSmooth::bkde(yp_ms[,n,drop=TRUE])
     f_dens <- approxfun(dens$x, dens$y, yleft=EPS, yright=EPS)
     f_pred <- function(y) ifelse(f_dens(y) <= 0, EPS, f_dens(y))
@@ -41,7 +41,7 @@ d_res <- foreach(paraID=seq_len(nrow(param)), .combine=rbind, .export=ls(envir=.
     if (is.na(ge)) try(ge <- pracma::romberg(f_ge, a=Mu[n]-6*SD, b=Mu[n]+6*SD)$value)
     ge
   })
-  ge <- mean(ge_by_sample, na.rm=TRUE)
+  ge <- mean(ge_by_data_point, na.rm=TRUE)
   
   log_lik_ms <- fit$draws('log_lik', format='matrix')
   waic  <- NA

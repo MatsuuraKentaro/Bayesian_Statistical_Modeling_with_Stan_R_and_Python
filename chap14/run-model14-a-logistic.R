@@ -29,14 +29,14 @@ d_res <- foreach(paraID=seq_len(nrow(param)), .combine=rbind, .export=ls(envir=.
   
   yp_ms <- fit$draws('yp', format='matrix')
   N_mcmc <- nrow(yp_ms)
-  ge_by_sample <- sapply(1:N, function(n) {
+  ge_by_data_point <- sapply(1:N, function(n) {
     post <- table(factor(yp_ms[,n,drop=TRUE], levels=0:1))/N_mcmc
     f_pred <- function(y) dbinom(y, size=1, prob=post['1'])
     f_true <- function(y) dbinom(y, size=1, prob=Mu[n])
     f_ge <- function(y) f_true(y)*(-log(f_pred(y)))
     ge <- sum(sapply(0:1, f_ge))
   })
-  ge <- mean(ge_by_sample)
+  ge <- mean(ge_by_data_point)
   
   log_lik_ms <- fit$draws('log_lik', format='matrix')
   waic  <- waic(log_lik_ms)$waic/(2*N)

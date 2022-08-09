@@ -29,7 +29,7 @@ for simID in range(N_sim):
     fit = model.sample(data=data, seed=123, iter_sampling=2500,
                        parallel_chains=4, show_progress=False)
     yp_ms = fit.stan_variable(var='yp')
-    ge_by_sample = []
+    ge_by_data_point = []
     for n in range(N):
         f_pred = stats.gaussian_kde(yp_ms[:,n])
         def f_true(y):
@@ -37,8 +37,8 @@ for simID in range(N_sim):
         def f_ge(y):
             return(f_true(y)*(-f_pred.logpdf(y)))
         ge, _ = integrate.nquad(f_ge, [[Mu[n]-6*SD, Mu[n]+6*SD]])
-        ge_by_sample.append(ge)
-    ge = np.mean(np.array(ge_by_sample))
+        ge_by_data_point.append(ge)
+    ge = np.mean(np.array(ge_by_data_point))
   
     log_lik_ms = fit.stan_variable(var='log_lik')
     waic = - np.mean(az.waic(fit, pointwise=True).waic_i.to_numpy())
@@ -61,9 +61,9 @@ d_res = pandas.DataFrame(res, columns=['ge', 'waic', 'looic'])
 
 ## calculate waic by myself
 # def waic_func(log_lik_ms):
-#     tr_error_by_sample = -np.log(np.mean(np.exp(log_lik_ms), axis=0))
-#     func_var_by_sample = np.mean(log_lik_ms**2, axis=0) \
+#     tr_error_by_data_point = -np.log(np.mean(np.exp(log_lik_ms), axis=0))
+#     func_var_by_data_point = np.mean(log_lik_ms**2, axis=0) \
 #                        - np.mean(log_lik_ms, axis=0)**2
-#     waic_by_sample = tr_error_by_sample + func_var_by_sample
-#     waic = np.mean(waic_by_sample)
+#     waic_by_data_point = tr_error_by_data_point + func_var_by_data_point
+#     waic = np.mean(waic_by_data_point)
 #     return(waic)
