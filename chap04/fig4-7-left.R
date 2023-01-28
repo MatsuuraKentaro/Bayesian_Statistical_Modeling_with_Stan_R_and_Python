@@ -10,7 +10,7 @@ scatter3D(d_ms$a, d_ms$b, d_ms$sigma,
           bty='b2', type='p', lwd=2, phi=10, theta=30,
           col='black', pch=21,  cex=1, ticktype='detailed', colkey=FALSE,
           xlab='', ylab='', zlab='', zlim=c(0.8, 6.2))
-scatter3D(d_ms$a, d_ms$b, rep(0.8, length(d_ms$a)), colkey=FALSE, add=TRUE,
+scatter3D(d_ms$a, d_ms$b, rep(0.8, N_ms), colkey=FALSE, add=TRUE,
           type='p', lwd=2, pch=21, 
           col='black', bg='white', alpha=0.8,
           cex=1)

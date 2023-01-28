@@ -3,3 +3,4 @@
 *.exe
 *.pdf
 *.hpp
+.vscode/

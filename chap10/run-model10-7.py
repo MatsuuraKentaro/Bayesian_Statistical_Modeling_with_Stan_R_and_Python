@@ -16,8 +16,8 @@ fit.save_csvfiles('output/result-model10-7')
 
 d_ms = fit.draws_pd()
 N_ms = len(d_ms)
-q_f_ms = d_ms[[c for c in d_ms.columns if 'q_f' in c]].to_numpy()
-q_r_ms = d_ms[[c for c in d_ms.columns if 'q_r' in c]].to_numpy()
+q_f_ms = d_ms.filter(regex=('q_f\[')).to_numpy()
+q_r_ms = d_ms.filter(regex=('q_r\[')).to_numpy()
 r = []
 for i in range(N_ms):
     r.append(np.corrcoef(q_f_ms[i,:], q_r_ms[i,:])[0,1])
