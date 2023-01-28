@@ -11,9 +11,8 @@ data.update({'N':len(d), 'Np':Np, 'Xp':Xp})
 
 model = cmdstanpy.CmdStanModel(stan_file='model/model4-4b.stan')
 fit = model.sample(data=data, seed=123)
-d_ms = fit.draws_pd()
-yp_base_ms = d_ms.filter(regex=('yp_base\[')).to_numpy()
-yp_ms      = d_ms.filter(regex=('yp\[')).to_numpy()
+yp_base_ms = fit.stan_variable(var='yp_base')
+yp_ms      = fit.stan_variable(var='yp')
 
 qua = np.quantile(yp_base_ms, [0.025, 0.25, 0.50, 0.75, 0.975], axis=0)
 d_est = pandas.DataFrame(np.column_stack([Xp, qua.T]), \
