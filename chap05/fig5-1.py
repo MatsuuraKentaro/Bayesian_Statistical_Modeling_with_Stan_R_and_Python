@@ -1,8 +1,7 @@
-import numpy as np
 import pandas
-import math
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
+import math
 from scipy import stats
 
 d = pandas.read_csv('input/data-shopping-1.csv')
