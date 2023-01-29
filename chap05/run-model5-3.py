@@ -15,3 +15,4 @@ data_sim['Y'] = Y_sim
 model = cmdstanpy.CmdStanModel(stan_file='model/model5-3.stan')
 fit_sim = model.sample(data=data_sim, seed=123, parallel_chains=4)
 fit     = model.sample(data=data,     seed=123, parallel_chains=4)
+fit.save_csvfiles('output/result-model5-3')
