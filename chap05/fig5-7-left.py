@@ -3,6 +3,8 @@ import cmdstanpy
 import numpy as np
 from plotnine import *
 
+np.random.seed(123)
+
 d = pandas.read_csv('input/data-shopping-3.csv')
 fit = cmdstanpy.from_csv('output/result-model5-5')
 q_ms = fit.stan_variable(var='q')
