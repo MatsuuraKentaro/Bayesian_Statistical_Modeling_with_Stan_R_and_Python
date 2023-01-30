@@ -1,23 +1,11 @@
-import pandas
+import cmdstanpy
 import seaborn as sns
 import matplotlib.pyplot as plt
 import math
 from scipy import stats
 
-d = pandas.read_csv('input/data-shopping-1.csv')
-d.drop(columns='PersonID', inplace=True)
-
-def plot_lower(x, y, **kws):
-    d_ = pandas.DataFrame({'x':x, 'y':y, 'Sex':d.Sex})
-    if x.nunique() < 5:
-        sns.boxplot(data=d_, x='x', y='y', hue='Sex')
-        sns.swarmplot(data=d_, x='x', y='y', color='black', alpha=0.5)
-    else:
-        sns.scatterplot(data=d_, x='x', y='y', hue='Sex')
-
-def plot_diag(x, **kws):    
-    d_ = pandas.DataFrame({'x':x, 'Sex':d.Sex})
-    sns.histplot(data=d_, x='x', hue='Sex', multiple='stack', kde=True)
+fit = cmdstanpy.from_csv('output/result-model5-3')
+d = fit.draws_pd().filter(items=['b[1]', 'b[2]', 'b[3]', 'sigma', 'mu[1]', 'mu[50]', 'lp__'])
 
 def plot_upper(x, y, **kws):
     from matplotlib.patches import Ellipse
@@ -31,8 +19,9 @@ def plot_upper(x, y, **kws):
     ax.text(.5, .5, '{:.0f}'.format(r*100), color=txtcolor, fontsize=28,
         horizontalalignment='center', verticalalignment='center', transform=ax.transAxes)
 
+sns.set(font_scale=2)
 g = sns.PairGrid(d)
-g.map_lower(plot_lower)
-g.map_diag(plot_diag)
+g.map_lower(sns.kdeplot, cmap='Blues_d')
+g.map_diag(sns.histplot)
 g.map_upper(plot_upper)
-g.savefig('output/fig5-1.py.png', dpi=300)
+g.savefig('output/fig5-4.py.png')

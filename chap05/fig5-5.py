@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import math
 from scipy import stats
 
-d = pandas.read_csv('input/data-shopping-1.csv')
+d = pandas.read_csv('input/data-shopping-2.csv')
+d['proportion'] =  d.Y / d.M
 d.drop(columns='PersonID', inplace=True)
 
 def plot_lower(x, y, **kws):
@@ -35,4 +36,4 @@ g = sns.PairGrid(d)
 g.map_lower(plot_lower)
 g.map_diag(plot_diag)
 g.map_upper(plot_upper)
-g.savefig('output/fig5-1.py.png', dpi=300)
+g.savefig('output/fig5-5.py.png')
