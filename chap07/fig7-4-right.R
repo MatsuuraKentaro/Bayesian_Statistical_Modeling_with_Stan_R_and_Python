@@ -5,9 +5,9 @@ d <- read.csv(file='input/data-rental.csv')
 
 fit <- readRDS('output/result-model7-2.RDS')
 mu_ms <- fit$draws('mu', format='matrix')
-N_mcmc <- nrow(mu_ms)
-noise_ms <- t(replicate(N_mcmc, log10(d$Y))) - mu_ms
-# noise_ms <- einsum::einsum('n,m->mn', log10(d$Y), rep(1, N_mcmc)) - mu_ms
+N_ms <- nrow(mu_ms)
+noise_ms <- t(replicate(N_ms, log10(d$Y))) - mu_ms
+# noise_ms <- einsum::einsum('n,m->mn', log10(d$Y), rep(1, N_ms)) - mu_ms
 
 d_mode <- apply(noise_ms, 2, function(x) {
   dens <- density(x)
@@ -21,7 +21,7 @@ d_mode <- apply(noise_ms, 2, function(x) {
   magrittr::set_colnames(c('X', 'Y'))
 
 
-s_dens <- density(fit$draws('s_y', format='matrix'))
+s_dens <- density(fit$draws('sigma', format='matrix'))
 s_MAP <- s_dens$x[which.max(s_dens$y)]
 bw <- 0.02
 p <- ggplot(data=d_mode, aes(x=X)) +
