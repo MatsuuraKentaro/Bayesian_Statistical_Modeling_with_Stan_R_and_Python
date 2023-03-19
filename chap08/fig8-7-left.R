@@ -16,6 +16,6 @@ p <- ggplot(data=d, aes(x=Time, y=Y)) +
   geom_line(size=1) +
   geom_point(size=3) +
   labs(x='Time (hour)', y='Y') +
-  scale_x_continuous(breaks=c(0,6,12,24), limit=c(0,24)) +
-  scale_y_continuous(breaks=seq(0,40,10), limit=c(-3,40))
+  scale_x_continuous(breaks=c(0,6,12,24), limits=c(0,24)) +
+  scale_y_continuous(breaks=seq(0,40,10), limits=c(-3,40))
 ggsave(p, file='output/fig8-7-left.png', dpi=300, w=8, h=7)

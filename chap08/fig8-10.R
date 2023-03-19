@@ -13,7 +13,7 @@ d_qua <- data.frame(Parameter=colnames(qua), t(qua), check.names=FALSE) %>%
 p <- ggplot() +
   theme_bw(base_size=18) +
   coord_flip() +
-  geom_violin(data=d_long, aes(x=Parameter, y=value), fill='white', color='grey80', size=2, alpha=0.3, scale='width') +
+  geom_violin(data=d_long, aes(x=Parameter, y=value), fill='white', color='gray80', size=2, alpha=0.3, scale='width') +
   geom_pointrange(data=d_qua, aes(x=Parameter, y=`50%`, ymin=`2.5%`, ymax=`97.5%`), size=1) +
   scale_x_discrete(limits=rev(levels(d_qua$Parameter))) +
   scale_y_continuous(breaks=seq(from=-6, to=6, by=2))

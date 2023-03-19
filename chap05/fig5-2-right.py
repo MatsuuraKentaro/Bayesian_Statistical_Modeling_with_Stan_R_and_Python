@@ -22,6 +22,6 @@ p = (ggplot(d_est, aes(x='Y', y='50%', ymin='10%', ymax='90%', shape='factor(Sex
     + labs(x='Observed', y='Predicted')
     + scale_x_continuous(breaks=np.arange(0, 1.1, 0.1))
     + scale_y_continuous(breaks=np.arange(0, 1.1, 0.1))
-    + labs(x='Observed', y='Predicted')
+    + labs(x='Observed', y='Predicted', shape='Sex', fill='Sex')
 ) 
 p.save(filename='output/fig5-2-right.py.png', dpi=300, width=5, height=4)

@@ -7,5 +7,4 @@ data <- list(N=N, C=C, X=d$X, Y=d$Y, n2c=d$CID)
 
 model <- cmdstan_model(stan_file='model/model8-4.stan')
 fit4 <- model$sample(data=data, seed=123, parallel_chains=4)
-
 fit4$save_object(file='output/result-model8-4.RDS')

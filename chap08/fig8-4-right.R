@@ -27,7 +27,7 @@ for (n in 1:Np) {
   yp_base_mcmc1[,n] <- d_ms1$a + d_ms1$b * Xp[n]
 }
 yp_base_med1 <- apply(yp_base_mcmc1, 2, median)
-d1 <- data.frame(X=rep(Xp, 4), Y=rep(yp_base_med1, 4), CID=rep(1:4, each=Np), Model='8-1')
+d1 <- data.frame(X=rep(Xp, C), Y=rep(yp_base_med1, C), CID=rep(1:C, each=Np), Model='8-1')
 
 d2 <- NULL
 d3 <- NULL
