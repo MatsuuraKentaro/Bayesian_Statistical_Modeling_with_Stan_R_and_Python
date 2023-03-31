@@ -14,8 +14,8 @@ d_est <- qua %>% t() %>%
 p <- ggplot() +
   theme_bw(base_size=18) +
   facet_grid(Parameter ~ ., scales='free_y') +
-  geom_ribbon(data=d_est, mapping=aes(x=X, ymin=`2.5%`, ymax=`97.5%`), alpha=1/6) +
-  geom_ribbon(data=d_est, mapping=aes(x=X, ymin=`25%`,  ymax=`75%`),   alpha=2/6) +
-  geom_line(data=d_est, mapping=aes(x=X, y=`50%`)) +
+  geom_ribbon(data=d_est, aes(x=X, ymin=`2.5%`, ymax=`97.5%`), alpha=1/6) +
+  geom_ribbon(data=d_est, aes(x=X, ymin=`25%`,  ymax=`75%`),   alpha=2/6) +
+  geom_line(data=d_est, aes(x=X, y=`50%`)) +
   labs(x='Time (Day)', y='')
 ggsave(p, file='output/fig11-21.png', dpi=300, w=8, h=6)

@@ -8,7 +8,7 @@ pulse_ms <- fit$draws('pulse', format='matrix')
 qua <- apply(pulse_ms, 2, quantile, probs=c(0.025, 0.25, 0.50, 0.75, 0.975))
 d_est <- data.frame(X=1:T, t(qua), check.names=FALSE)
 
-p <- ggplot(data=d_est) +
+p <- ggplot() +
   theme_bw(base_size=18) +
   geom_line(data=d, aes(x=X, y=Y), size=0.3, alpha=0.4) +
   geom_line(data=d_est, aes(x=X, y=`50%`), size=0.2) +
@@ -26,7 +26,7 @@ pulse_ms <- fit$draws('pulse', format='matrix')
 qua <- apply(pulse_ms, 2, quantile, probs=c(0.025, 0.25, 0.50, 0.75, 0.975))
 d_est <- data.frame(X=1:T, t(qua), check.names=FALSE)
 
-p <- ggplot(data=d_est) +
+p <- ggplot() +
   theme_bw(base_size=18) +
   geom_line(data=d, aes(x=X, y=Y), size=0.3, alpha=0.4) +
   geom_line(data=d_est, aes(x=X, y=`50%`), size=0.2) +

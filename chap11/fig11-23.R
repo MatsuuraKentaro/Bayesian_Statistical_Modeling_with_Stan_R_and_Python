@@ -9,9 +9,9 @@ d_est <- data.frame(X=1:ncol(qua), t(qua), check.names=FALSE)
 
 p <- ggplot() +
   theme_bw(base_size=18) +
-  geom_ribbon(data=d_est, mapping=aes(x=X, ymin=`2.5%`, ymax=`97.5%`), alpha=1/6) +
-  geom_ribbon(data=d_est, mapping=aes(x=X, ymin=`25%`,  ymax=`75%`),   alpha=2/6) +
-  geom_line(data=d_est, mapping=aes(x=X, y=`50%`)) +
+  geom_ribbon(data=d_est, aes(x=X, ymin=`2.5%`, ymax=`97.5%`), alpha=1/6) +
+  geom_ribbon(data=d_est, aes(x=X, ymin=`25%`,  ymax=`75%`),   alpha=2/6) +
+  geom_line(data=d_est, aes(x=X, y=`50%`)) +
   labs(x='Time (Day)', y='b_event')
 ggsave(p, file='output/fig11-23-left.png', dpi=300, w=4, h=3)
 
