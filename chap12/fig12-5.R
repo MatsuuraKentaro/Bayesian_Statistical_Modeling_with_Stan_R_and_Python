@@ -44,7 +44,6 @@ ggsave(p, file='output/fig12-5-left.png', dpi=300, w=7.5, h=6)
 
 
 make_d_r <- function(Flow, sex, fit) {
-  d_out <- d %>% mutate(ratio=Y/sum(Y) * 100)
   r_ms <- fit$draws('r', format='matrix')
   qua <- apply(r_ms, 2, quantile, probs=c(0.025, 0.5, 0.975))
   d_out <- data.frame(Sex=sex, Age=Flow$from-1, t(qua), check.names=FALSE)

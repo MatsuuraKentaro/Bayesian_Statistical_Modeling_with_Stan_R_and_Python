@@ -15,3 +15,4 @@ data = {'N':N, 'X':X, 'Mu':np.zeros(N), 'Y':Y, 'T':T, 'n2t':n2t}
  
 model = cmdstanpy.CmdStanModel(stan_file='model/model12-9.stan')
 fit_MAP = model.optimize(data=data, seed=123)
+fit_MAP.save_csvfiles('output/result-model12-9')

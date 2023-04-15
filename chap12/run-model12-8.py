@@ -2,7 +2,7 @@ import pandas
 import cmdstanpy
 import numpy as np
 
-Y = pandas.read_csv('input/data-1D.csv').Y.values
+Y = pandas.read_csv('input/data-1D.csv').Y
 I = len(Y)
 Mu = np.repeat(np.mean(np.log(Y.clip(1))), I)
 X = np.arange(I) / (I-1)
