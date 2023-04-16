@@ -1,6 +1,6 @@
 import cmdstanpy
 import numpy as np
-from scipy.stats import beta
+# from scipy.stats import beta
 import logging
 from cmdstanpy.utils import get_logger
 get_logger().setLevel(logging.ERROR)

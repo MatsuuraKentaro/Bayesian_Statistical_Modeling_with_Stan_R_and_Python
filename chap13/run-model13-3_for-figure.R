@@ -22,8 +22,8 @@ d_est <- NULL
 d_sel <- NULL
 
 for (t in 1:T) {
-  d_dat <- rbind(d_dat, data.frame(time=t, data.frame(X=x_sel, Y=y_sel)))
-  d_pre <- rbind(d_pre, data.frame(time=t+1, data.frame(X=x_cum, Y=y_cum)))
+  d_dat <- rbind(d_dat, data.frame(time=t, X=x_sel, Y=y_sel))
+  d_pre <- rbind(d_pre, data.frame(time=t+1, X=x_cum, Y=y_cum))
   
   N <- length(x_cum)
   y_mean <- mean(y_cum)
