@@ -14,7 +14,7 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`10%`, ymax=`90%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.5) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=0.5) +
   geom_point(data=d, aes(x=X, y=Y), shape=1, size=2) +
   coord_cartesian(ylim = c(0, 22)) +
   labs(x='X', y='Y')

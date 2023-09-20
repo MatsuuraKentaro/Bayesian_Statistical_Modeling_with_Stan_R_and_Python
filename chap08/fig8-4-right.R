@@ -59,9 +59,9 @@ p <- ggplot(data=d, aes(x=X, y=Y, shape=CID)) +
   theme_bw(base_size=20) +
   theme(legend.key.width=grid::unit(2.5,'line')) +
   facet_wrap(~CID_label) +
-  geom_line(data=d1, aes(alpha=Model, linetype=Model, size=Model)) +
-  geom_line(data=d2, aes(alpha=Model, linetype=Model, size=Model)) +
-  geom_line(data=d3, aes(alpha=Model, linetype=Model, size=Model)) +
+  geom_line(data=d1, aes(alpha=Model, linetype=Model, linewidth=Model)) +
+  geom_line(data=d2, aes(alpha=Model, linetype=Model, linewidth=Model)) +
+  geom_line(data=d3, aes(alpha=Model, linetype=Model, linewidth=Model)) +
   geom_point(size=3, alpha=0.3) +
   scale_shape_manual(values=c(16, 2, 4, 9)) +
   scale_size_manual(values=c(2, 1, 1)) +

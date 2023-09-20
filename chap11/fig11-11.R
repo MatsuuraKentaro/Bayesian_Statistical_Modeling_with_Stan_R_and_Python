@@ -10,12 +10,12 @@ d_est <- data.frame(X=1:T, t(qua), check.names=FALSE)
 
 p <- ggplot() +
   theme_bw(base_size=18) +
-  geom_line(data=d, aes(x=X, y=Y), size=0.3, alpha=0.4) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`2.5%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`97.5%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`25%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`75%`), size=0.2) +
+  geom_line(data=d, aes(x=X, y=Y), linewidth=0.3, alpha=0.4) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`2.5%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`97.5%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`25%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`75%`), linewidth=0.2) +
   ylim(-0.3, 2.3) +
   labs(x='Time (Second)', y='Y')
 ggsave(p, file='output/fig11-11-left.png', dpi=300, w=4, h=3)
@@ -28,12 +28,12 @@ d_est <- data.frame(X=1:T, t(qua), check.names=FALSE)
 
 p <- ggplot() +
   theme_bw(base_size=18) +
-  geom_line(data=d, aes(x=X, y=Y), size=0.3, alpha=0.4) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`2.5%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`97.5%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`25%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`75%`), size=0.2) +
+  geom_line(data=d, aes(x=X, y=Y), linewidth=0.3, alpha=0.4) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`2.5%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`97.5%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`25%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`75%`), linewidth=0.2) +
   ylim(-0.3, 2.3) +
   labs(x='Time (Second)', y='Y')
 ggsave(p, file='output/fig11-11-right.png', dpi=300, w=4, h=3)

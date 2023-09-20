@@ -13,11 +13,11 @@ d_est <- data.frame(X=Xp, t(qua), check.names=FALSE)
 
 p <- ggplot(data=d_est) +
   theme_bw(base_size=18) +
-  geom_line(aes(x=X, y=`50%`), size=0.5) +
-  geom_line(aes(x=X, y=`2.5%`), size=0.4, alpha=0.5) +
-  geom_line(aes(x=X, y=`97.5%`), size=0.4, alpha=0.5) +
-  geom_line(aes(x=X, y=`25%`), size=0.4, alpha=0.6, linetype='32') +
-  geom_line(aes(x=X, y=`75%`), size=0.4, alpha=0.6, linetype='32') +
+  geom_line(aes(x=X, y=`50%`), linewidth=0.5) +
+  geom_line(aes(x=X, y=`2.5%`), linewidth=0.4, alpha=0.5) +
+  geom_line(aes(x=X, y=`97.5%`), linewidth=0.4, alpha=0.5) +
+  geom_line(aes(x=X, y=`25%`), linewidth=0.4, alpha=0.6, linetype='32') +
+  geom_line(aes(x=X, y=`75%`), linewidth=0.4, alpha=0.6, linetype='32') +
   geom_point(data=d, aes(x=X, y=Y), size=2, alpha=0.6) +
   ylim(-3, 3) +
   labs(x='X', y='Y')

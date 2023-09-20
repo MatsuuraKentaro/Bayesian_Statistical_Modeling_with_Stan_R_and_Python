@@ -16,7 +16,7 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=conf_95, aes(x=X, ymin=lwr, ymax=upr), alpha=1/6) +
   geom_ribbon(data=conf_50, aes(x=X, ymin=lwr, ymax=upr), alpha=2/6) +
-  geom_line(data=conf_50, aes(x=X, y=fit), size=1) +
+  geom_line(data=conf_50, aes(x=X, y=fit), linewidth=1) +
   geom_point(data=d, aes(x=X, y=Y), shape=1, size=3) +
   scale_y_continuous(breaks=seq(40, 60, 10), limits=c(32, 67)) +
   labs(x='X', y='Y')
@@ -26,7 +26,7 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=pred_95, aes(x=X, ymin=lwr, ymax=upr), alpha=1/6) +
   geom_ribbon(data=pred_50, aes(x=X, ymin=lwr, ymax=upr), alpha=2/6) +
-  geom_line(data=pred_50, aes(x=X, y=fit), size=1) +
+  geom_line(data=pred_50, aes(x=X, y=fit), linewidth=1) +
   geom_point(data=d, aes(x=X, y=Y), shape=1, size=3) +
   scale_y_continuous(breaks=seq(40, 60, 10), limits=c(32, 67)) +
   labs(x='X', y='Y')

@@ -12,7 +12,7 @@ fp <- fit_MAP$draws('fp', format='matrix') %>% as.vector()
 d_est <- data.frame(X=Xp, Y=fp)
 p <- ggplot(data=d_est) +
   theme_bw(base_size=18) +
-  geom_line(aes(x=X, y=Y), size=1) +
+  geom_line(aes(x=X, y=Y), linewidth=1) +
   geom_point(data=d, aes(x=X, y=Y), color='black', shape=16, size=0.2, alpha=0.3) +
   labs(x='X', y='Y')
 ggsave(p, file='output/fig12-18.png', dpi=300, w=4, h=3)

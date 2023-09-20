@@ -23,7 +23,7 @@ p <- ggplot(data=d_est, aes(x=X)) +
   theme_bw(base_size=18) +
   geom_ribbon(aes(ymin=`2.5%`, ymax=`97.5%`), alpha=1/6) +
   geom_ribbon(aes(ymin=`25%`,  ymax=`75%`),   alpha=2/6) +
-  geom_line(aes(y=`50%`), size=0.2) +
+  geom_line(aes(y=`50%`), linewidth=0.2) +
   labs(x='Time (Day)', y='residual')
 ggsave(p, file='output/fig11-20-left.png', dpi=300, w=4, h=3)
 

@@ -18,7 +18,7 @@ p <- ggplot(data=d, aes(x=X, y=Y, shape=CID)) +
   theme_bw(base_size=20) +
   geom_abline(intercept=coef[1], slope=coef[2], size=2, alpha=0.3) +
   facet_wrap(~CID_label) +
-  geom_line(stat='smooth', method='lm', se=FALSE, size=1, color='black', linetype='21', alpha=0.8) +
+  geom_line(stat='smooth', method='lm', se=FALSE, linewidth=1, color='black', linetype='21', alpha=0.8) +
   geom_point(size=3) +
   scale_shape_manual(values=c(16, 2, 4, 9)) +
   labs(shape='CID')

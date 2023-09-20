@@ -10,7 +10,7 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.5) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=0.5) +
   geom_point(data=d_est, aes(x=X, y=`50%`)) +
   labs(x='Time (Hour)', y='Y')
 ggsave(p, file='output/fig11-13-left.png', dpi=300, w=4, h=3)
@@ -24,7 +24,7 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.5) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=0.5) +
   geom_hline(yintercept=0, linetype='22', alpha=0.6) +
   geom_point(data=d_est, aes(x=X, y=`50%`)) +
   labs(x='Time (Hour)', y='Y')

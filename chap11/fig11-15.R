@@ -31,10 +31,10 @@ p <- ggplot() +
   facet_wrap(~Item, ncol=1, scales='free_y') +
   geom_ribbon(data=d_weight_est, aes(x=Time, ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_weight_est, aes(x=Time, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_weight_est, aes(x=Time, y=`50%`), size=1) +
+  geom_line(data=d_weight_est, aes(x=Time, y=`50%`), linewidth=1) +
   geom_ribbon(data=d_bodyfat_est, aes(x=Time, ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_bodyfat_est, aes(x=Time, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_bodyfat_est, aes(x=Time, y=`50%`), size=1) +
+  geom_line(data=d_bodyfat_est, aes(x=Time, y=`50%`), linewidth=1) +
   geom_line(data=d1, aes(Time, Y), alpha=0.7) +
   geom_point(data=d1, aes(Time, Y), shape=16, size=2, alpha=0.3) +
   geom_line(data=d2, aes(Time, Y), alpha=0.7) +
