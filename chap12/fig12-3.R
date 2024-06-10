@@ -13,7 +13,7 @@ p <- ggplot() +
   geom_bar(data=d %>% filter(Sex=='F'), aes(x=Age, y=Y,    fill=Sex), stat='identity', width=0.6) +
   scale_y_continuous(breaks=seq(-2.5,2.5,0.5),labels=abs(seq(-2.5,2.5,0.5)), limit=c(-2.5,2.5)) +
   scale_x_continuous(breaks=seq(0, 75, 5), labels=seq(0, 75, 5)) +
-  scale_fill_manual(breaks=c('F', 'M'), values=c('gray50', 'black')) +
+  scale_fill_manual(values=c('black', 'gray50')) +
   guides(fill=guide_legend(reverse=TRUE)) +
   geom_hline(yintercept=0) +
   ylab('Y [M]') +
