@@ -1,5 +1,5 @@
 # Bayesian Statistical Modeling with Stan, R, and Python
-- Kentaro Matsuura (2023). Bayesian Statistical Modeling with Stan, R, and Python. Singapore: Springer.
+- Kentaro Matsuura (2022). Bayesian Statistical Modeling with Stan, R, and Python. Singapore: Springer.
 - URL: https://link.springer.com/book/10.1007/978-981-19-4755-1
 - URL: https://www.amazon.com/dp/9811947546/
 
