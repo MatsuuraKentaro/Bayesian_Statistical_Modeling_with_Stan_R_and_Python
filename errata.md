@@ -11,7 +11,6 @@
 | 196 | Paragraph 3, line 5 | iltpon | ??? |
 | 196 | Paragraph 3, line 6 | believthat | believe that |
 | 200 | Paragraph 3, line 6 | thiprior | this prior |
-| 200 | Paragraph 3, line 6 | thiprior | this prior |
 | 202 | Paragraph 6, line 1 | and$\b$ | and $\b$ |
 | 202 | Paragraph 6, line 3 | $\sigma_\alpha$ and $\sigma_\beta$ | $\sigma_a$ and $\sigma_b$ |
 | 202 | Paragraph 6, line 4 | $\sigma_\alpha$, $\sigma_\beta$ | $\sigma_a$, $\sigma_b$ |
